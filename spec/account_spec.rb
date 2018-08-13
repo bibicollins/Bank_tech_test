@@ -28,4 +28,10 @@ describe Account do
       expect(account.show_balance).to eq 30
     end
   end
+  describe '#statement' do
+    it 'shows a history of transactions' do
+      account.deposit(10)
+      expect(account.statement).to eq [10, 30]
+    end
+  end
 end
