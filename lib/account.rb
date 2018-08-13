@@ -5,7 +5,11 @@ class Account
   MINIMUM_BALANCE = 0
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
-    @transactions = []
+    @current_balance = []
+    @date = []
+    @credit = []
+    @debit = []
+
   end
 
   def show_balance
@@ -15,21 +19,23 @@ class Account
   def withdraw(withdrawal_amount)
     raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount
-    transaction = []
-    transaction << - withdrawal_amount
-    transaction << @balance
-    @transactions << transaction
+    @date << date
+    @debit <<  withdrawal_amount
+    @current_balance << @balance
+    @credit << ' '
   end
 
   def deposit(deposit_amount)
     @balance += deposit_amount
-    transaction = []
-    transaction << deposit_amount
-    transaction << @balance
-    @transactions << transaction
+    @date << date
+    @debit << ' '
+    @current_balance << @balance
+    @credit << deposit_amount
   end
 
-  def statement
-    @transactions
+  def date
+    t = Time.now
+    t.to_s
+    t.strftime "%Y-%m-%d"
   end
 end

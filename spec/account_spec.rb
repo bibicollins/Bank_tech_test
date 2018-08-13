@@ -1,16 +1,24 @@
 require 'account'
 require './error'
+require 'spec_helper'
 # credit = deposit
 # debit = withdraw
 describe Account do
   let(:account) { Account.new }
+  let(:time) { test_time }
+
   it { is_expected.to respond_to :show_balance }
   it { is_expected.to respond_to :withdraw }
   it { is_expected.to respond_to :deposit }
+  it { is_expected.to respond_to :date }
 
   describe 'initialize' do
     it 'intializes with a default balance of 20' do
       expect(account.show_balance).to eq Account::DEFAULT_BALANCE
+    end
+    it 'stores the date of any transaction' do
+      account.withdraw(10)
+      expect(account.date).to eq time
     end
   end
   describe 'minimum balance' do
@@ -32,13 +40,6 @@ describe Account do
     it 'deposits a give amount to the account balance' do
       account.deposit(10)
       expect(account.show_balance).to eq 30
-    end
-  end
-  describe '#statement' do
-    it 'shows a history of transactions' do
-      account.deposit(10)
-      account.withdraw(5)
-      expect(account.statement).to eq [[10, 30], [-5, 25]]
     end
   end
 end
