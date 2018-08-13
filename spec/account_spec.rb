@@ -1,9 +1,10 @@
 require 'account'
 
 describe Account do
-  account = Account.new
+  let(:account) { Account.new }
   it { is_expected.to respond_to :show_balance }
   it { is_expected.to respond_to :withdraw }
+  it { is_expected.to respond_to :deposit }
 
   describe 'initialize' do
     it 'intializes with a default balance of 20' do
@@ -19,6 +20,12 @@ describe Account do
     it 'withdraws a given amount from the account balance' do
       account.withdraw(10)
       expect(account.show_balance).to eq 10
+    end
+  end
+  describe '#deposit' do
+    it 'deposits a give amount to the account balance' do
+      account.deposit(10)
+      expect(account.show_balance).to eq 30
     end
   end
 end
