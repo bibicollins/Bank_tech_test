@@ -1,5 +1,7 @@
 require 'account'
-
+require './error'
+# credit = deposit
+# debit = withdraw
 describe Account do
   let(:account) { Account.new }
   it { is_expected.to respond_to :show_balance }
@@ -20,6 +22,10 @@ describe Account do
     it 'withdraws a given amount from the account balance' do
       account.withdraw(10)
       expect(account.show_balance).to eq 10
+    end
+    it 'raises an error if you try to withdraw more than available balance' do
+      expect { account.withdraw(40) }.to raise_error('Not enough money')
+      expect(account.show_balance).to eq 20
     end
   end
   describe '#deposit' do

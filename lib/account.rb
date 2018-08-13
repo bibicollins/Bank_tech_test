@@ -1,3 +1,4 @@
+require './error'
 # Account class, responsible for current state of account
 class Account
   DEFAULT_BALANCE = 20
@@ -12,6 +13,7 @@ class Account
   end
 
   def withdraw(withdrawal_amount)
+    raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount
     transaction = []
     transaction << - withdrawal_amount
