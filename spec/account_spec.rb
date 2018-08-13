@@ -9,4 +9,9 @@ describe Account do
       expect(account.show_balance).to eq Account::DEFAULT_BALANCE
     end
   end
+  describe 'minimum balance' do
+    it 'has a minimum balance of 0' do
+      expect(Account::MINIMUM_BALANCE).to eq 0
+    end 
+  end
 end
