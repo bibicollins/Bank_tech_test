@@ -31,7 +31,8 @@ describe Account do
   describe '#statement' do
     it 'shows a history of transactions' do
       account.deposit(10)
-      expect(account.statement).to eq [10, 30]
+      account.withdraw(5)
+      expect(account.statement).to eq [[10, 30], [-5, 25]]
     end
   end
 end

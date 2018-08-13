@@ -13,14 +13,18 @@ class Account
 
   def withdraw(withdrawal_amount)
     @balance -= withdrawal_amount
-    @transactions << - withdrawal_amount
-    @transactions << @balance
+    transaction = []
+    transaction << - withdrawal_amount
+    transaction << @balance
+    @transactions << transaction
   end
 
   def deposit(deposit_amount)
     @balance += deposit_amount
-    @transactions << deposit_amount
-    @transactions << @balance
+    transaction = []
+    transaction << deposit_amount
+    transaction << @balance
+    @transactions << transaction
   end
 
   def statement
