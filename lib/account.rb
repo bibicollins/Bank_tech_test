@@ -5,11 +5,11 @@ require_relative 'statement_printer'
 class Account
   DEFAULT_BALANCE = 20
   MINIMUM_BALANCE = 0
-  def initialize(transaction = Transaction)
+  def initialize(transaction = Transaction, printed_statement = StatementPrinter.new)
     @balance = DEFAULT_BALANCE
-    # @credit = []
-    # @debit = []
     @transaction = transaction
+    @printed_statement = printed_statement
+    @transactions = []
   end
 
   def show_balance
@@ -19,21 +19,25 @@ class Account
   def withdraw(withdrawal_amount)
     raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount
-    @debit =  withdrawal_amount
-    @credit = ' '
-    @transaction.new(date, withdrawal_amount, '', @balance)
+    with = @transaction.new(date, withdrawal_amount, '  ', @balance)
+    store_transaction(with)
   end
 
   def deposit(deposit_amount)
     @balance += deposit_amount
-    @debit = ' '
-    @credit = deposit_amount
-    @transaction.new(date, '', deposit_amount, @balance)
+    dep = @transaction.new(date, '  ', deposit_amount, @balance)
+    store_transaction(dep)
   end
-
   def date
     t = Time.now
     t.to_s
     t.strftime "%Y-%m-%d"
   end
+  def store_transaction(transaction)
+    @transactions << transaction
+  end
+  def print_summary
+    @printed_statement.print_statement(@transactions)
+  end
+
 end
