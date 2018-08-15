@@ -1,12 +1,12 @@
+# Statement printer is responsible for formatting the statement.
 class StatementPrinter
-
-def print_statement(transactions)
-  print_header
-  format_transactions(transactions)
-end
+  def print_statement(transactions)
+    print_header
+    format_transactions(transactions)
+  end
 
   def print_header
-     puts 'date      || credit || debit || balance'
+    puts 'date      || credit || debit || balance'
   end
 
   def format_transactions(transactions)

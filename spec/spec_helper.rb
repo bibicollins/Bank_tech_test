@@ -2,9 +2,9 @@ require 'simplecov'
 require 'simplecov-console'
 
 def test_time
-time = Time.now
-time.to_s
-time.strftime "%Y-%m-%d"
+  time = Time.now
+  time.to_s
+  time.strftime '%Y-%m-%d'
 end
 
 SimpleCov.start

@@ -5,7 +5,8 @@ require_relative 'statement_printer'
 class Account
   DEFAULT_BALANCE = 20
   MINIMUM_BALANCE = 0
-  def initialize(transaction = Transaction, printed_statement = StatementPrinter.new)
+  def initialize(transaction = Transaction,
+                 printed_statement = StatementPrinter.new)
     @balance = DEFAULT_BALANCE
     @transaction = transaction
     @printed_statement = printed_statement
@@ -28,16 +29,18 @@ class Account
     dep = @transaction.new(date, '  ', deposit_amount, @balance)
     store_transaction(dep)
   end
+
   def date
     t = Time.now
     t.to_s
-    t.strftime "%Y-%m-%d"
+    t.strftime '%Y-%m-%d'
   end
+
   def store_transaction(transaction)
     @transactions << transaction
   end
+
   def print_summary
     @printed_statement.print_statement(@transactions)
   end
-
 end

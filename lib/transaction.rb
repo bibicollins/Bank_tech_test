@@ -1,4 +1,4 @@
-
+# Transaction responsible for making individual transactions.
 class Transaction
   attr_reader :date, :debit, :credit, :balance
   def initialize(date, debit, credit, balance)
