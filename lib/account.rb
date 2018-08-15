@@ -3,6 +3,7 @@ require_relative 'transaction'
 require_relative 'statement_printer'
 # Account class, responsible for current state of account
 class Account
+  attr_reader :transaction
   DEFAULT_BALANCE = 20
   MINIMUM_BALANCE = 0
   def initialize(transaction = Transaction,
@@ -35,12 +36,15 @@ class Account
     t.to_s
     t.strftime '%Y-%m-%d'
   end
- 
-  def store_transaction(transaction)
-    @transactions << transaction
-  end
 
   def print_summary
     @printed_statement.print_statement(@transactions)
   end
+
+private
+
+  def store_transaction(transaction)
+    @transactions << transaction
+  end
+
 end
