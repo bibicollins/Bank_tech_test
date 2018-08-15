@@ -42,11 +42,11 @@ describe Account do
       expect(account.show_balance).to eq 30
     end
   end
-  # describe '#print_summary' do
-  #   it 'Prints the entire transaction summary' do
-  #     account.deposit(10)
-  #     allow(account).to receive(:print_summary).and_return("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n")
-  #     expect { account.print_summary }.to output("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n").to_stdout
-  #   end
-  # end
+  describe '#print_summary' do
+    it 'Prints the entire transaction summary' do
+      account.deposit(10)
+      allow(account).to receive(:print_summary).and_return("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n")
+      expect { account.print_summary }.to output("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n").to_stdout
+    end
+  end
 end
