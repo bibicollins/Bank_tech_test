@@ -33,9 +33,12 @@ class Account
     @credit << deposit_amount
   end
 
+private
+
   def date
     t = Time.now
     t.to_s
     t.strftime "%Y-%m-%d"
   end
+
 end
