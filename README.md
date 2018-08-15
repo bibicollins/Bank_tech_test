@@ -1,7 +1,7 @@
 # Bank tech test
 Simulating an interview standard tech_test in week 9 of Makers Academy.  
 I have created a simple ruby application that allows a user to create and interact with a bank account with these given requirements:  
-Requirements  
+### Requirements  
 You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)  
 Deposits, withdrawal.  
 Account statement (date, amount, balance) printing.  
@@ -11,7 +11,7 @@ Given a client makes a deposit of 1000 on 10-01-2012
 And a deposit of 2000 on 13-01-2012  
 And a withdrawal of 500 on 14-01-2012  
 When she prints her bank statement  
-Then she would see  
+Then she would see:  
 
     date || credit || debit || balance  
     14/01/2012 || || 500.00 || 2500.00  
