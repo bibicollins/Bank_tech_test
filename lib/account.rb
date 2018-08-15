@@ -33,7 +33,7 @@ class Account
     @credit << deposit_amount
   end
 
-private
+
 
   def date
     t = Time.now
