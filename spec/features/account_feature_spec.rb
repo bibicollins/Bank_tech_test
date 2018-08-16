@@ -21,6 +21,6 @@ describe '#print_summary' do
     account = Account.new
     account.deposit(10)
     account.withdraw(7)
-    expect { account.print_summary }.to output("date      || credit || debit || balance\n#{test_time}||   10   ||       || 30 \n#{test_time}||        ||  7   || 23 \n").to_stdout
+    expect { account.print_summary }.to output("date      || credit || debit || balance\n#{test_time}||   10.00   ||       || 30.00 \n#{test_time}||        ||  7.00   || 23.00 \n").to_stdout
 end
 end

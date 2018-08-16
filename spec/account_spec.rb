@@ -47,7 +47,7 @@ describe Account do
   describe '#print_summary' do
     it 'Prints the entire transaction summary' do
       allow(transaction_class).to receive(:new).and_return("2018-08-16", 10, "  ", 10)
-      allow_any_instance_of(statement_printer).to receive(print_statement).and_return("2018-08-16", 10, "  ", 10)
+      allow(statement_printer).to receive(:print_statement).and_return(transaction)
       expect(account.print_summary).to receive(:print_statement).with("2018-08-16", 10, "  ", 10)
       account.print_summary
     end
