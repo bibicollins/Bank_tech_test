@@ -14,14 +14,12 @@ describe StatementPrinter do
   end
   describe '#format_transactions' do
     it 'formats the transactions' do
-      expect { statement.format_transactions(transactions) }.to output("#{test_time}\
-        ||   10   ||      || 30 \n").to_stdout
+      expect { statement.format_transactions(transactions) }.to output("#{test_time}||   10   ||      || 30 \n").to_stdout
     end
   end
   describe '#print_statement' do
     it 'Prints the summary of the transaction' do
-      expect { statement.print_statement(transactions) }.to output("date      || credit || debit ||\
-         balance\n#{test_time}||   10   ||      || 30 \n").to_stdout
+      expect { statement.print_statement(transactions) }.to output("date      || credit || debit || balance\n#{test_time}||   10   ||      || 30 \n").to_stdout
     end
   end
 end

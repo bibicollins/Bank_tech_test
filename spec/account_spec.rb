@@ -1,14 +1,13 @@
 require 'account'
 require './error'
 require 'spec_helper'
-# credit = deposit
-# debit = withdraw
+
 describe Account do
   let(:account) { Account.new(transaction_class, statement_printer) }
   let(:time) { test_time }
   let(:statement_printer) { double('StatementPrinter') }
   let(:transaction_class) { double('Transaction') }
-  let(:transactions) { [:transaction] }
+  let(:transactions) { [transaction] }
   let(:transaction) { double(:transaction, date: test_time, debit: ' ', credit: 10, balance: 30) }
 
   describe 'initialize' do
@@ -47,8 +46,7 @@ describe Account do
   describe '#print_summary' do
     it 'Prints the entire transaction summary' do
       allow(transaction_class).to receive(:new).and_return('2018-08-16', 10, '  ', 10)
-      allow(statement_printer).to receive(:print_statement).and_return(transaction)
-      expect(account.print_summary).to receive(:print_statement).with('2018-08-16', 10, '  ', 10)
+      expect(statement_printer).to receive(:print_statement)
       account.print_summary
     end
   end
