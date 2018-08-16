@@ -6,6 +6,8 @@ require 'spec_helper'
 describe Account do
   let(:account) { Account.new }
   let(:time) { test_time }
+  let(:@transactions) { [transaction] }
+  let(:transaction) { double(:transaction, :date => "2019-05-15", :debit => ' ', :credit => 20, :balance => 30)}
 
   it { is_expected.to respond_to :show_balance }
   it { is_expected.to respond_to :withdraw }
@@ -20,6 +22,14 @@ describe Account do
       account.withdraw(10)
       expect(account.date).to eq time
     end
+    # describe Transaction do
+    #   let(:time) { test_time }
+    #   it 'stores the date of any transaction' do
+    #     account = double('Account')
+    #     allow(account).to receive(:date).and_return("2018-08-15")
+    #     expect(account.date).to eq time
+    #   end
+    # end
   end
   describe 'minimum balance' do
     it 'has a minimum balance of 0' do
@@ -42,11 +52,11 @@ describe Account do
       expect(account.show_balance).to eq 30
     end
   end
-  describe '#print_summary' do
-    it 'Prints the entire transaction summary' do
-      account.deposit(10)
-      allow(account).to receive(:print_summary).and_return("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n")
-      expect { account.print_summary }.to output("date      || credit || debit || balance\n2018-08-15||   10   ||       || 30 \n").to_stdout
-    end
-  end
+  # describe '#print_summary' do
+  #   it 'Prints the entire transaction summary' do
+  #
+  #     ### expect .to be called. stub print_statement?
+  #   end
+  # end
+  ### Think about what you need to stub or double here, multiple dependencies.
 end

@@ -3,7 +3,7 @@ require_relative 'transaction'
 require_relative 'statement_printer'
 # Account class, responsible for current state of account
 class Account
-  attr_reader :transaction
+  attr_reader :transaction, :date
   DEFAULT_BALANCE = 20
   MINIMUM_BALANCE = 0
   def initialize(transaction = Transaction,
