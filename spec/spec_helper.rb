@@ -4,7 +4,7 @@ require 'simplecov-console'
 def test_time
   time = Time.now
   time.to_s
-  time.strftime '%Y-%m-%d'
+  time.strftime '%d-%m-%Y'
 end
 
 SimpleCov.start

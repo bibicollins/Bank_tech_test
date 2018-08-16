@@ -22,16 +22,16 @@ class Account
     store_transaction(withdrawal_result)
   end
 
+  def date
+    t = Time.now
+    t.to_s
+    t.strftime '%d-%m-%Y'
+  end
+
   def deposit(deposit_amount)
     @balance += deposit_amount
     deposit_result = @transaction.new(date, '  ', format('%.2f', deposit_amount), format('%.2f', @balance))
     store_transaction(deposit_result)
-  end
-
-  def date
-    t = Time.now
-    t.to_s
-    t.strftime '%Y-%m-%d'
   end
 
   def print_summary
