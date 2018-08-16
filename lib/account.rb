@@ -3,7 +3,7 @@ require_relative 'transaction'
 require_relative 'statement_printer'
 # Account class, responsible for current state of account
 class Account
-  attr_reader :transaction, :date
+  attr_reader :transaction
   DEFAULT_BALANCE = 20
   MINIMUM_BALANCE = 0
   def initialize(transaction = Transaction,
@@ -21,13 +21,14 @@ class Account
   def withdraw(withdrawal_amount)
     raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount
-    withdrawal_result = @transaction.new(date, "%.2f" % withdrawal_amount, '  ', "%.2f" % @balance)
+    withdrawal_result = @transaction.new(date, format('%.2f',
+                      withdrawal_amount), '  ', format('%.2f', @balance))
     store_transaction(withdrawal_result)
   end
 
   def deposit(deposit_amount)
     @balance += deposit_amount
-    deposit_result = @transaction.new(date, '  ', "%.2f" % deposit_amount, "%.2f" % @balance)
+    deposit_result = @transaction.new(date, '  ', format('%.2f', deposit_amount), format('%.2f', @balance))
     store_transaction(deposit_result)
   end
 
@@ -41,10 +42,9 @@ class Account
     @printed_statement.print_statement(@transactions)
   end
 
-private
+  private
 
   def store_transaction(transaction)
     @transactions << transaction
   end
-
 end

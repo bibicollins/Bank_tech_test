@@ -1,12 +1,11 @@
 require './lib/account'
 require './spec/spec_helper'
 describe '#deposit' do
-  let(:time) {test_time}
+  let(:time) { test_time }
   it 'should add money to the account balance' do
     account = Account.new
     account.deposit(10)
     expect(account.instance_variable_get('@balance')).to eq 30
-
   end
 end
 describe '#withdraw' do
@@ -21,6 +20,7 @@ describe '#print_summary' do
     account = Account.new
     account.deposit(10)
     account.withdraw(7)
-    expect { account.print_summary }.to output("date      || credit || debit || balance\n#{test_time}||   10.00   ||       || 30.00 \n#{test_time}||        ||  7.00   || 23.00 \n").to_stdout
-end
+    expect { account.print_summary }.to output("date      || credit || debit || balance\n#{test_time}"\
+      "||   10.00   ||       || 30.00 \n#{test_time}||        ||  7.00   || 23.00 \n").to_stdout
+  end
 end
