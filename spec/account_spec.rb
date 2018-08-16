@@ -15,11 +15,6 @@ describe Account do
     it 'intializes with a default balance of 20' do
       expect(account.instance_variable_get('@balance')).to eq Account::DEFAULT_BALANCE
     end
-    it 'stores the date of any transaction' do
-      allow(transaction_class).to receive(:new).and_return(test_time.to_s, 10, '  ', 10)
-      account.withdraw(10)
-      expect(account.date).to eq time
-    end
   end
   describe 'minimum balance' do
     it 'has a minimum balance of 0' do

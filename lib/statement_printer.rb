@@ -14,4 +14,5 @@
       puts "#{x.date}||   #{x.credit}   ||  #{x.debit}   || #{x.balance} "
     end
   end
+
  end
