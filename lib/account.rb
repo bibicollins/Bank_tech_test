@@ -14,10 +14,6 @@ class Account
     @transactions = []
   end
 
-  def show_balance
-    @balance
-  end
-
   def withdraw(withdrawal_amount)
     raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount

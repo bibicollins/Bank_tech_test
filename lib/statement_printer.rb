@@ -1,5 +1,5 @@
 # Statement printer is responsible for formatting the statement.
-class StatementPrinter
+ class StatementPrinter
   def print_statement(transactions)
     print_header
     format_transactions(transactions)
@@ -14,4 +14,4 @@ class StatementPrinter
       puts "#{x.date}||   #{x.credit}   ||  #{x.debit}   || #{x.balance} "
     end
   end
-end
+ end
