@@ -6,6 +6,7 @@ Enter the following commands in your terminal:
 - Clone the repository and change into the directory: `git clone https://github.com/bibicollins/Bank_tech_test.git && cd bank_tech_test`
 - Install the required gems: `bundle install`
 ## Usage
+
 - An example using IRB:
   - require './lib/account'
   - account = Account.new
@@ -16,6 +17,8 @@ Enter the following commands in your terminal:
 date      || credit || debit || balance  
 2018-08-15||   30   ||       || 50  
 2018-08-15||        ||  12   || 38   
+
+![Usage example](/lib/Bank-screen-video.gif)
 ### Requirements  
 You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)  
 Deposits, withdrawal.  
