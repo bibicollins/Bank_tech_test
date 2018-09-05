@@ -6,6 +6,7 @@ Enter the following commands in your terminal:
 - Clone the repository and change into the directory: `git clone https://github.com/bibicollins/Bank_tech_test.git && cd bank_tech_test`
 - Install the required gems: `bundle install`
 ## Usage
+![Usage example](/lib/Bank-screen-video.gif)
 - An example using IRB:
   - require './lib/account'
   - account = Account.new
