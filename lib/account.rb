@@ -18,13 +18,13 @@ class Account
     raise MyError, 'Not enough money' unless withdrawal_amount < @balance
     @balance -= withdrawal_amount
     withdrawal_result = @transaction.new(Time.now.strftime('%d-%m-%Y'), format('%.2f',
-                      withdrawal_amount), '  ', format('%.2f', @balance))
+                      withdrawal_amount), '     ', format('%.2f', @balance))
     store_transaction(withdrawal_result)
   end
 
   def deposit(deposit_amount)
     @balance += deposit_amount
-    deposit_result = @transaction.new(Time.now.strftime('%d-%m-%Y'), '  ', format('%.2f', deposit_amount), format('%.2f', @balance))
+    deposit_result = @transaction.new(Time.now.strftime('%d-%m-%Y'), '     ', format('%.2f', deposit_amount), format('%.2f', @balance))
     store_transaction(deposit_result)
   end
 

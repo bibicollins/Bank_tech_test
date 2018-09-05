@@ -6,12 +6,12 @@ class StatementPrinter
   end
 
   def print_header
-    puts 'date      || credit || debit || balance'
+    puts 'date      || credit || debit    || balance'
   end
 
   def format_transactions(transactions)
     transactions.each do |x|
-      puts "#{x.date}||   #{x.credit}   ||  #{x.debit}   || #{x.balance} "
+      puts "#{x.date}||  #{x.credit} ||  #{x.debit}   || #{x.balance} "
     end
   end
 end
