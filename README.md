@@ -1,5 +1,5 @@
 # Bank tech test
-Simulating an interview standard tech_test in week 9 of Makers Academy.  
+Simulating an interview standard tech test in week 9 of Makers Academy.  
 I have created a simple ruby application that allows a user to create and interact with a bank account with these given requirements:
 ## Getting started
 Enter the following commands in your terminal:
